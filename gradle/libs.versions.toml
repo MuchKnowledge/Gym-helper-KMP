@@ -1,0 +1,138 @@
+# Gym Helper KMP — version catalog
+# Проверенная связка на 19.08.2026. Ключевые ограничения:
+#  - KGP 2.4.10 официально протестирован с AGP 8.5.2–9.1.0 и Gradle 7.6.3–9.5.0 → держимся внутри окна.
+#  - Compose Multiplatform 1.11+ больше не поддерживает iosX64/macosX64 → только arm64-таргеты.
+#  - detekt 1.x не читает метаданные Kotlin 2.3+ (issue закрыт as not planned) → detekt 2.x, группа dev.detekt.
+
+[versions]
+# --- toolchain ---
+kotlin = "2.4.10"
+agp = "9.1.1"
+ksp = "2.3.11"
+composeMultiplatform = "1.11.1"
+jvmToolchain = "17"
+
+# --- android sdk ---
+android-compileSdk = "37"
+android-targetSdk = "36"
+android-minSdk = "24"
+
+# --- kotlinx ---
+coroutines = "1.11.0"
+serialization = "1.11.0"
+datetime = "0.8.0"
+
+# --- androidx ---
+room = "3.0.1"
+sqlite = "2.7.0"
+datastore = "1.2.1"
+activityCompose = "1.13.0"
+androidxCore = "1.19.0"
+lifecycleKmp = "2.11.0"
+
+# --- architecture ---
+koin = "4.2.2"
+decompose = "3.5.0"
+essenty = "2.5.0"
+mvikotlin = "4.4.0"
+
+# --- network (пока не используется, задел) ---
+ktor = "3.5.2"
+
+# --- test ---
+turbine = "1.2.1"
+
+# --- quality ---
+detekt = "2.0.0-alpha.5"
+ktlint = "1.8.0"
+ktlintPlugin = "14.2.0"
+
+[libraries]
+# --- kotlinx ---
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+
+# --- androidx: room 3 ---
+room-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room" }
+sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+
+# --- androidx: datastore ---
+datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastore" }
+datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
+
+# --- androidx: android entry ---
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-core = { module = "androidx.core:core", version.ref = "androidxCore" }
+
+# --- lifecycle (KMP-сборка от JetBrains, НЕ androidx.lifecycle) ---
+lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleKmp" }
+lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleKmp" }
+
+# --- koin ---
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+koin-test = { module = "io.insert-koin:koin-test" }
+
+# --- decompose / mvikotlin ---
+decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
+essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
+essenty-state-keeper = { module = "com.arkivanov.essenty:state-keeper", version.ref = "essenty" }
+essenty-instance-keeper = { module = "com.arkivanov.essenty:instance-keeper", version.ref = "essenty" }
+essenty-back-handler = { module = "com.arkivanov.essenty:back-handler", version.ref = "essenty" }
+mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
+mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
+mvikotlin-logging = { module = "com.arkivanov.mvikotlin:mvikotlin-logging", version.ref = "mvikotlin" }
+mvikotlin-extensions-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
+mvikotlin-timetravel = { module = "com.arkivanov.mvikotlin:mvikotlin-timetravel", version.ref = "mvikotlin" }
+
+# --- ktor (задел на сеть/синк) ---
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+# --- test ---
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+
+# --- для build-logic (convention plugins тянут плагины как зависимости) ---
+gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+gradle-plugin-android-kmp-library = { module = "com.android.kotlin.multiplatform.library:com.android.kotlin.multiplatform.library.gradle.plugin", version.ref = "agp" }
+gradle-plugin-kotlin-serialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+gradle-plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "composeMultiplatform" }
+gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+[bundles]
+decompose = ["decompose", "decompose-compose"]
+essenty = ["essenty-lifecycle", "essenty-state-keeper", "essenty-instance-keeper", "essenty-back-handler"]
+mvikotlin = ["mvikotlin", "mvikotlin-main", "mvikotlin-extensions-coroutines"]
+ktor = ["ktor-client-core", "ktor-client-content-negotiation", "ktor-serialization-json"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-kmp-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room3", version.ref = "room" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintPlugin" }
+
+# --- convention plugins (реализуем в build-logic на следующем шаге) ---
+gymhelper-kmp-library = { id = "gymhelper.kmp.library" }
+gymhelper-kmp-compose = { id = "gymhelper.kmp.compose" }
+gymhelper-kmp-feature = { id = "gymhelper.kmp.feature" }
+gymhelper-android-application = { id = "gymhelper.android.application" }

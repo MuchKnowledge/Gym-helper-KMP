@@ -39,7 +39,7 @@ Decompose-компонент → Compose-UI. Платформенный код �
 ```bash
 ./gradlew ktlintCheck                  # стиль
 ./gradlew :composeApp:assembleDebug    # сборка
-./gradlew allTests                     # тесты
+./gradlew unitTests                    # тесты
 ```
 
 Требуется JDK 17 и Android SDK с compileSdk 37.

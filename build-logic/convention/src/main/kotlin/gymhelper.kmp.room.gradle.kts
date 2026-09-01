@@ -17,6 +17,11 @@ extensions.configure<RoomExtension> {
 }
 
 kotlin {
+    // JVM-таргет здесь — ради тестов: JVM-артефакт Room + BundledSQLiteDriver
+    // позволяют гонять DAO-тесты без Context, Robolectric и эмулятора.
+    // Модули, от которых зависит Room-модуль, тоже должны объявлять jvm().
+    jvm()
+
     sourceSets {
         commonMain.dependencies {
             api(libs.findLibrary("room-runtime").get())
@@ -30,6 +35,7 @@ kotlin {
 dependencies {
     val roomCompiler = libs.findLibrary("room-compiler").get()
     add("kspAndroid", roomCompiler)
+    add("kspJvm", roomCompiler)
 
     // iOS-таргеты объявлены не на всех хостах, а вместе с ними отсутствуют
     // и их ksp-конфигурации — поэтому подключаемся только к существующим.

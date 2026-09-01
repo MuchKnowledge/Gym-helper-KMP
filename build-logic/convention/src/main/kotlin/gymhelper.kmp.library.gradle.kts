@@ -32,7 +32,7 @@ val moduleNamespace: String = "com.trulala.gymhelper." +
 kotlin {
     jvmToolchain(libs.findVersion("jvmToolchain").get().requiredVersion.toInt())
 
-    androidLibrary {
+    android {
         namespace = moduleNamespace
         compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
@@ -40,6 +40,10 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
+
+        // Без этого у android-таргета нет тестовой компиляции: commonTest
+        // висит неподключённым, а unit-тесты просто негде запускать.
+        withHostTestBuilder {}.configure {}
     }
 
     // iosX64 намеренно отсутствует: Compose Multiplatform 1.11+ не поддерживает Apple x86_64.

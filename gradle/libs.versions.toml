@@ -10,6 +10,8 @@ kotlin = "2.4.10"
 agp = "9.1.1"
 ksp = "2.3.11"
 composeMultiplatform = "1.11.1"
+# Material 3 в CMP релизится отдельным циклом: с CMP 1.11.1 идёт именно эта версия.
+composeMaterial3 = "1.11.0-alpha07"
 jvmToolchain = "17"
 
 # --- android sdk ---
@@ -54,6 +56,15 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+
+# --- compose multiplatform ---
+# DSL-аксессоры compose.runtime / compose.material3 задепрекейчены в CMP 1.11,
+# зависимости объявляются напрямую.
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "composeMultiplatform" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "composeMaterial3" }
+compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeMultiplatform" }
 
 # --- androidx: room 3 ---
 room-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room" }
@@ -116,6 +127,7 @@ gradle-plugin-room = { module = "androidx.room3:room3-gradle-plugin", version.re
 gradle-plugin-ktlint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlintPlugin" }
 
 [bundles]
+compose = ["compose-runtime", "compose-foundation", "compose-ui", "compose-material3", "compose-components-resources"]
 decompose = ["decompose", "decompose-compose"]
 essenty = ["essenty-lifecycle", "essenty-state-keeper", "essenty-instance-keeper", "essenty-back-handler"]
 mvikotlin = ["mvikotlin", "mvikotlin-main", "mvikotlin-extensions-coroutines"]

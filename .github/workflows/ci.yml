@@ -32,8 +32,8 @@ jobs:
       - name: Assemble debug
         run: ./gradlew :composeApp:assembleDebug --stacktrace
 
-      - name: Common + Android unit tests
-        run: ./gradlew allTests --stacktrace
+      - name: Unit tests
+        run: ./gradlew unitTests --stacktrace
 
       - name: Upload APK
         if: success()

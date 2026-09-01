@@ -18,3 +18,12 @@ extensions.configure<KtlintExtension> {
     // захватывает объект скрипта и ломает configuration cache. Сгенерированный
     // код отсекаем через секцию [**/build/**] в .editorconfig — её читает сам ktlint.
 }
+
+// Единая точка входа для CI: JVM unit-тесты всех модулей, без завязки на то,
+// как именно KGP и AGP называют свои test-таски в этой версии.
+// Native-тесты сюда не входят — они всё равно не запускаются вне macOS.
+tasks.register("unitTests") {
+    group = "verification"
+    description = "Запускает все JVM unit-тесты модуля."
+    dependsOn(tasks.withType<Test>())
+}

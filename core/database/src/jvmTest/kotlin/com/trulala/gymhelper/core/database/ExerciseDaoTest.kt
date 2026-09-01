@@ -17,7 +17,8 @@ import kotlin.test.assertNull
  * что KSP-генерация Room работает для jvm-таргета.
  */
 class ExerciseDaoTest {
-    private val database = Room.inMemoryDatabaseBuilder<GymHelperDatabase>()
+    private val database = Room
+        .inMemoryDatabaseBuilder<GymHelperDatabase>()
         .setDriver(BundledSQLiteDriver())
         .setQueryCoroutineContext(Dispatchers.Default)
         .build()

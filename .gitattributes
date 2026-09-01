@@ -1,0 +1,18 @@
+# Нормализуем переводы строк: репозиторий кроссплатформенный,
+# разработка на Windows, CI на Linux, потом ещё и macOS.
+* text=auto
+
+# Shell-скрипты обязаны быть LF и исполняемыми — иначе на Linux-раннере
+# "Permission denied" или "bad interpreter".
+gradlew   text eol=lf
+*.sh      text eol=lf
+
+# Windows-скрипты — наоборот.
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+
+# Бинарники не трогаем.
+*.jar     binary
+*.png     binary
+*.jpg     binary
+*.webp    binary

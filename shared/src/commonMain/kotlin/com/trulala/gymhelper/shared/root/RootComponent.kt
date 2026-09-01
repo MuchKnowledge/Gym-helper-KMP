@@ -8,7 +8,6 @@ import com.arkivanov.decompose.value.Value
  * и рисует текущего ребёнка. Пока в стеке одна заглушка: реальные фичи приедут в Фазе 1.
  */
 interface RootComponent {
-
     val stack: Value<ChildStack<*, Child>>
 
     fun onBackClicked()

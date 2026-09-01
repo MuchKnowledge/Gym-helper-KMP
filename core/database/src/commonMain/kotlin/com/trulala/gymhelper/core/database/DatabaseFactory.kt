@@ -12,8 +12,7 @@ expect class DatabaseFactory {
     fun createBuilder(): RoomDatabase.Builder<GymHelperDatabase>
 }
 
-fun DatabaseFactory.createDatabase(): GymHelperDatabase =
-    createBuilder()
-        .setDriver(BundledSQLiteDriver())
-        .setQueryCoroutineContext(Dispatchers.IO)
-        .build()
+fun DatabaseFactory.createDatabase(): GymHelperDatabase = createBuilder()
+    .setDriver(BundledSQLiteDriver())
+    .setQueryCoroutineContext(Dispatchers.IO)
+    .build()

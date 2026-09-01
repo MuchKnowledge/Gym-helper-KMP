@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.Flow
  */
 @Dao
 interface ExerciseDao {
-
     @Query("SELECT * FROM exercises ORDER BY name")
     fun observeAll(): Flow<List<ExerciseEntity>>
 

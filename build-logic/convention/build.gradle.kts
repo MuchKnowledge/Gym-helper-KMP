@@ -17,4 +17,5 @@ dependencies {
     implementation(libs.gradle.plugin.compose.compiler)
     implementation(libs.gradle.plugin.ksp)
     implementation(libs.gradle.plugin.room)
+    implementation(libs.gradle.plugin.ktlint)
 }

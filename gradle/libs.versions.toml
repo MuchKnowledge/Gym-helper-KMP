@@ -113,6 +113,7 @@ gradle-plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin"
 gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradle-plugin-room = { module = "androidx.room3:room3-gradle-plugin", version.ref = "room" }
+gradle-plugin-ktlint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlintPlugin" }
 
 [bundles]
 decompose = ["decompose", "decompose-compose"]

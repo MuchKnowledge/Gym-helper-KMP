@@ -1,9 +1,11 @@
 # Gym Helper KMP
 
+[![CI](https://github.com/MuchKnowledge/Gym-helper-KMP/actions/workflows/ci.yml/badge.svg)](https://github.com/MuchKnowledge/Gym-helper-KMP/actions/workflows/ci.yml)
+
 Нативное мультиплатформенное приложение для тренировок, рациона и трекинга.
 Android + iOS из одного Kotlin-кода: Compose Multiplatform, MVI, Clean Architecture.
 
-> 🚧 В разработке. Сейчас: Фаза 0 — каркас проекта.
+> 🚧 В разработке. Каркас собран, дальше — первая фича (тренировки).
 
 ## Стек
 
@@ -35,11 +37,18 @@ Decompose-компонент → Compose-UI. Платформенный код �
 ## Сборка
 
 ```bash
-./gradlew :composeApp:assembleDebug
-./gradlew allTests
+./gradlew ktlintCheck                  # стиль
+./gradlew :composeApp:assembleDebug    # сборка
+./gradlew allTests                     # тесты
 ```
 
 Требуется JDK 17 и Android SDK с compileSdk 37.
+
+## Качество кода
+
+ktlint 1.8 с `ktlint_official`, подключается ко всем модулям через convention-плагин
+`gymhelper.quality`. Правила — в `.editorconfig`, там же объяснены отступления от дефолта.
+detekt 2.x появится, когда выйдет стабильный: 1.x не читает метаданные Kotlin 2.3+.
 
 ## Заметки о версиях
 

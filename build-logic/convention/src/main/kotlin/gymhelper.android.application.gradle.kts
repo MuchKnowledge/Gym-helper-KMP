@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("gymhelper.quality")
 }
 
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")

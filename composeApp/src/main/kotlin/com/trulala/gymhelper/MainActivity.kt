@@ -9,7 +9,6 @@ import com.trulala.gymhelper.shared.root.DefaultRootComponent
 import com.trulala.gymhelper.shared.root.RootContent
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

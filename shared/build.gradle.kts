@@ -1,12 +1,14 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     id("gymhelper.kmp.compose")
 }
 
 kotlin {
-    // Фреймворк для будущего iosApp. Xcode-проект появится, когда будет Mac,
-    // но baseName фиксируем сейчас, чтобы имя не менялось задним числом.
-    listOf(iosArm64(), iosSimulatorArm64()).forEach { target ->
-        target.binaries.framework {
+    // Фреймворк для будущего iosApp. Вешаем на все native-таргеты, какие объявлены:
+    // на не-macOS хостах их нет вовсе, и блок просто ничего не делает.
+    targets.withType<KotlinNativeTarget>().configureEach {
+        binaries.framework {
             baseName = "GymHelperKMP"
             isStatic = true
         }

@@ -8,7 +8,6 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
 class GymHelperApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
         startKoin {

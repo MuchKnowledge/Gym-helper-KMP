@@ -9,11 +9,9 @@ import platform.Foundation.NSURL
 import platform.Foundation.NSUserDomainMask
 
 actual class DatabaseFactory {
-
-    actual fun createBuilder(): RoomDatabase.Builder<GymHelperDatabase> =
-        Room.databaseBuilder<GymHelperDatabase>(
-            name = documentDirectory() + "/" + GymHelperDatabase.FILE_NAME,
-        )
+    actual fun createBuilder(): RoomDatabase.Builder<GymHelperDatabase> = Room.databaseBuilder<GymHelperDatabase>(
+        name = documentDirectory() + "/" + GymHelperDatabase.FILE_NAME,
+    )
 
     @OptIn(ExperimentalForeignApi::class)
     private fun documentDirectory(): String {

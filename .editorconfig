@@ -1,0 +1,42 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 120
+
+[*.{kt,kts}]
+ktlint_code_style = ktlint_official
+# @Composable-функции пишутся с большой буквы — это соглашение Compose,
+# а не нарушение нейминга.
+ktlint_function_naming_ignore_when_annotated_with = Composable
+# ktlint_official требует переносить multiline-выражение на строку после `=`.
+# В KMP-коде под это попадает каждый builder — module { }, darkColorScheme(),
+# childStack() — и даёт лишний уровень вложенности без выигрыша в читаемости.
+#
+# У свойств правило отключается целиком; у функций это не отдельное правило,
+# а настройка function-signature, поэтому возвращаем ей поведение по умолчанию:
+# перенос только если тело не помещается. Настраиваем обе стороны сразу, чтобы
+# стиль свойств и функций не разъезжался внутри одного файла.
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_function_signature_body_expression_wrapping = default
+
+# Разрешаем trailing comma: она уменьшает диффы при добавлении параметров.
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+
+[*.{yml,yaml,json,toml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Сгенерированный код — Compose Resources, KSP, Room — не наш и форматированию
+# не подлежит. Выключаем ktlint для него здесь, а не в Gradle: спека-лямбда
+# в filter {} ломает configuration cache.
+[**/build/**]
+ktlint = disabled

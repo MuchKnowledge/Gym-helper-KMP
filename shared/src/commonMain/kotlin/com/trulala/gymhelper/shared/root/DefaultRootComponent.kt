@@ -10,8 +10,8 @@ import kotlinx.serialization.Serializable
 
 class DefaultRootComponent(
     componentContext: ComponentContext,
-) : RootComponent, ComponentContext by componentContext {
-
+) : RootComponent,
+    ComponentContext by componentContext {
     private val navigation = StackNavigation<Config>()
 
     override val stack: Value<ChildStack<*, RootComponent.Child>> =

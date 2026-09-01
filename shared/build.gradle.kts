@@ -16,6 +16,7 @@ kotlin {
         commonMain.dependencies {
             api(projects.core.common)
             api(projects.core.designsystem)
+            api(projects.core.database)
 
             // api, а не implementation: типы Decompose (ComponentContext, Value, ChildStack)
             // торчат в публичном API RootComponent, значит потребители модуля обязаны их видеть.

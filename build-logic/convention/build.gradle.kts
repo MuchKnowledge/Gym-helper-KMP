@@ -15,4 +15,6 @@ dependencies {
     implementation(libs.gradle.plugin.android.kmp.library)
     implementation(libs.gradle.plugin.compose)
     implementation(libs.gradle.plugin.compose.compiler)
+    implementation(libs.gradle.plugin.ksp)
+    implementation(libs.gradle.plugin.room)
 }

@@ -45,10 +45,10 @@ include(":shared")       // общий корень: RootComponent (Decompose) +
 // --- core ---
 include(":core:common")
 include(":core:designsystem")
+include(":core:database")
 
 // Дальше по мере наполнения — раскомментируем, когда у модуля появится build-файл:
 // include(":core:ui")
-// include(":core:database")
 // include(":core:datastore")
 // include(":core:sync")
 // include(":core:testing")

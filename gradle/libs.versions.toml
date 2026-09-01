@@ -112,6 +112,7 @@ gradle-plugin-kotlin-serialization = { module = "org.jetbrains.kotlin.plugin.ser
 gradle-plugin-compose = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "composeMultiplatform" }
 gradle-plugin-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 gradle-plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+gradle-plugin-room = { module = "androidx.room3:room3-gradle-plugin", version.ref = "room" }
 
 [bundles]
 decompose = ["decompose", "decompose-compose"]
